@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 col-md-4 mx-auto">
+  <div class="glass-card p-4 p-md-5 rounded-4 shadow-neon" data-aos="fade-up">
+    <h4 class="fw-bold bebas-text mb-4 text-center fs-2">Join PAIRO</h4>
+    <form method="post" class="d-flex flex-column gap-3">
+      {% csrf_token %}
+      <input class="form-control rounded-pill py-3 px-4 bg-dark text-light border-0 shadow-neon" name="username" placeholder="Username" required>
+      <input class="form-control rounded-pill py-3 px-4 bg-dark text-light border-0 shadow-neon" type="password" name="password" placeholder="Password" required>
+      <button class="btn btn-neon py-3 rounded-pill shadow-neon fw-bold" type="submit">Signup</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

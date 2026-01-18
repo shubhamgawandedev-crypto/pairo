@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="glass-card p-4 p-md-5 rounded-4 shadow-neon" data-aos="fade-up">
+    <h3 class="fw-bold bebas-text mb-4 fs-3">Your Cart</h3>
+    <ul class="list-group list-group-flush" id="cart-items"></ul>
+
+    <div class="text-end mt-4">
+      <h5 class="fs-4 fw-bold">Total: ₹<span id="cart-total">0</span></h5>
+      <a href="/checkout/" class="btn btn-neon btn-lg px-5 py-3 rounded-pill mt-3 shadow-neon">Checkout</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}
