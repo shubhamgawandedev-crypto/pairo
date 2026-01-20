@@ -1,0 +1,201 @@
+/* Global Reset & Typography */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a; /* Dark urban background */
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Colors & Gradients – trending neon fashion */
+:root {
+  --neon-pink: #ff3e6b;
+  --neon-orange: #ff8c00;
+  --dark-bg: #0a0a0a;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --shadow-neon: 0 8px 32px rgba(255, 62, 107, 0.2);
+  --gradient-neon: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+}
+
+.neon-text {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-neon {
+  background: var(--gradient-neon);
+  color: white !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-neon);
+}
+
+.btn-outline-neon {
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-neon:hover {
+  background: var(--neon-pink);
+  color: white;
+  box-shadow: var(--shadow-neon);
+}
+
+/* Glassmorphism */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: var(--shadow-neon);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Navbar */
+.glass-nav {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 62, 107, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  height: 80vh;
+  background: var(--gradient-neon);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.6);
+}
+
+.gradient-overlay {
+  background: linear-gradient(to bottom, transparent, var(--dark-bg));
+}
+
+/* Product Image & Price */
+.product-image {
+  transition: transform 0.5s ease;
+}
+
+.product-image:hover img {
+  transform: scale(1.05);
+}
+
+.price {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Size Options */
+.size-btn {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.size-btn.active {
+  background: var(--gradient-neon);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: var(--shadow-neon);
+}
+
+/* Table in Profile */
+.table-dark {
+  --bs-table-bg: var(--glass-bg);
+  --bs-table-color: #f0f0f0;
+}
+
+.table-hover tr:hover {
+  background: rgba(255, 62, 107, 0.1);
+}
+
+/* Loader */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid var(--neon-pink);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 80px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Toast */
+.toast {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--neon-pink) !important;
+  box-shadow: var(--shadow-neon) !important;
+}
+
+/* Forms (Login/Signup) */
+.form-control {
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 62, 107, 0.2);
+  color: #f0f0f0;
+}
+
+.form-control:focus {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 0 0.25rem rgba(255, 62, 107, 0.25);
+}
+
+/* Cart Items */
+.list-group-item {
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 62, 107, 0.1);
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+  background: rgba(255, 62, 107, 0.05);
+}
+
+/* Category Pills (in home) */
+.category-pills button {
+  border-radius: 50px;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+}
+
+.category-pills button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-neon);
+}

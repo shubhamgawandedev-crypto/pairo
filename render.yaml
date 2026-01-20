@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: pairo-web
+    env: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DB_HOST
+        fromDatabase:
+          name: pairo-db
+          property: host
+      - key: DB_NAME
+        fromDatabase:
+          name: pairo-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: pairo-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: pairo-db
+          property: password
+      - key: DB_PORT
+        value: "3306"
+
+databases:
+  - name: pairo-db
+    plan: free
