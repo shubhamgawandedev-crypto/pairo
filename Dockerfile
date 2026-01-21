@@ -24,10 +24,9 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Collect static (safe even in dev)
-RUN python manage.py collectstatic --noinput || true
-
+RUN chmod +x entrypoint.sh
 # Expose port
 EXPOSE 8000
 
 # Start server
-CMD ["gunicorn", "pairo_backend.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["./entrypoint.sh"]
