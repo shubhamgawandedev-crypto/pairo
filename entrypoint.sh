@@ -1,5 +1,8 @@
 #!/bin/sh
+<<<<<<< HEAD
 set -e
+=======
+>>>>>>> 6c2b985e4a2a4ac77023812ff7487947185b2594
 
 echo "Running migrations..."
 python manage.py migrate --noinput
