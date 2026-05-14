@@ -6,8 +6,8 @@
     <h4 class="fw-bold bebas-text mb-4 text-center fs-2">Login to PAIRO</h4>
     <form method="post" class="d-flex flex-column gap-3">
       {% csrf_token %}
-      <input class="form-control rounded-pill py-3 px-4 bg-dark text-light border-0 shadow-neon" name="username" placeholder="Username" required>
-      <input class="form-control rounded-pill py-3 px-4 bg-dark text-light border-0 shadow-neon" type="password" name="password" placeholder="Password" required>
+      <input class="form-control py-3 px-4" name="username" placeholder="Username" required>
+      <input class="form-control py-3 px-4" type="password" name="password" placeholder="Password" required>
       <button class="btn btn-neon py-3 rounded-pill shadow-neon fw-bold" type="submit">Login</button>
     </form>
   </div>

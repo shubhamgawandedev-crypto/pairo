@@ -7,9 +7,7 @@
   <title>PAIRO – Step Into the Future</title>
 
   <!-- Google Fonts – Poppins + Bebas Neue for trendy headings -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,31 +20,54 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="bg-dark text-light overflow-x-hidden">
-
+<body class="overflow-x-hidden">
 <!-- NAVBAR – trendy glass, with neon brand & cart badge -->
-<nav class="navbar navbar-expand-lg glass-nav fixed-top shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-2 neon-text" href="/">PAIRO</a>
+<nav class="navbar navbar-expand-lg fixed-top genz-navbar px-4 py-3">
+  <div class="container-fluid">
 
-    <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
+    <!-- 🔥 BRAND -->
+    <a class="navbar-brand brand-logo d-flex align-items-center gap-2" href="/">
+      <span class="logo-icon">👟</span>
+      <span class="brand-text">PAIRO</span>
+    </a>
+
+    <!-- MOBILE TOGGLE -->
+    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      ☰
     </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <!-- NAV CONTENT -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
+      <!-- CENTER LINKS -->
+      <ul class="navbar-nav mx-auto gap-4 text-center">
+        <li class="nav-item"><a class="nav-link nav-genz" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-genz" href="#">Drops</a></li>
+        <li class="nav-item"><a class="nav-link nav-genz" href="#">Street</a></li>
+        <li class="nav-item"><a class="nav-link nav-genz" href="#">Collections</a></li>
+      </ul>
+
+      <!-- RIGHT SIDE -->
       <div class="d-flex align-items-center gap-3">
+
         {% if user.is_authenticated %}
-          <a href="/profile/" class="btn btn-outline-neon btn-sm px-4 py-2 rounded-pill">Profile</a>
-          <a href="/logout/" class="btn btn-outline-neon btn-sm px-4 py-2 rounded-pill">Logout</a>
+          <a href="/profile/" class="nav-icon">👤</a>
+          <a href="/logout/" class="nav-icon">🚪</a>
         {% else %}
-          <a href="/login/" class="btn btn-outline-neon btn-sm px-4 py-2 rounded-pill">Login</a>
-          <a href="/signup/" class="btn btn-neon btn-sm px-4 py-2 rounded-pill">Join Now</a>
+          <a href="/login/" class="nav-icon">🔐</a>
         {% endif %}
-        <a href="/cart/" class="btn btn-neon position-relative px-3 py-2 rounded-pill">
+
+        <!-- CART -->
+        <a href="/cart/" class="nav-icon position-relative">
           🛒
-          <span id="cart-count-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none fs-6">0</span>
+          <span id="cart-count-badge"
+            class="badge bg-danger position-absolute top-0 start-100 translate-middle d-none">
+            0
+          </span>
         </a>
+
       </div>
+
     </div>
   </div>
 </nav>
@@ -79,6 +100,16 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ once: true, duration: 1200, easing: 'ease-out-cubic' });
+</script>
+<script>
+window.addEventListener("scroll", function() {
+  const nav = document.querySelector(".genz-navbar");
+  if (window.scrollY > 50) {
+    nav.style.background = "rgba(0,0,0,0.9)";
+  } else {
+    nav.style.background = "rgba(0,0,0,0.6)";
+  }
+});
 </script>
 
 </body>

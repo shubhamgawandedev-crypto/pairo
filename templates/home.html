@@ -4,15 +4,26 @@
 {% block content %}
 
 <!-- HERO – trendy, full-screen with gradient overlay & call to action -->
-<section class="hero d-flex align-items-center text-center text-white position-relative overflow-hidden" data-aos="fade-in">
-  <div class="hero-overlay gradient-overlay"></div>
-  <div class="container position-relative z-2">
-    <h1 class="display-2 fw-bold bebas-text mb-3">PAIRO</h1>
-    <p class="fs-4 opacity-75 mb-4">Street-Born. Future-Made. Elevate Your Step.</p>
-    <a href="#products" class="btn btn-neon btn-lg px-5 py-3 rounded-pill shadow-neon">Shop Now</a>
+<section class="hero-premium d-flex align-items-center">
+  <div class="container text-center">
+    <h1 class="hero-main">DROP THE HYPE</h1>
+    <p class="hero-tagline">Next-gen sneakers built for street dominance</p>
+
+    <div class="mt-4">
+      <a href="#products-section" class="btn btn-neon btn-lg px-5 py-3">
+        Explore Collection →
+      </a>
+    </div>
   </div>
 </section>
 
+<section class="feature-strip py-4 text-center">
+  <div class="container d-flex justify-content-around">
+    <div>🚚 Fast Delivery</div>
+    <div>🔥 Latest Drops</div>
+    <div>💯 Premium Quality</div>
+  </div>
+</section>
 <!-- SUB CATEGORY BAR – trendy pills with hover glow -->
 <div class="container mt-5" data-aos="fade-up">
   <div id="sub-category-bar" class="d-flex gap-3 flex-wrap justify-content-center mb-5">
@@ -21,10 +32,17 @@
 </div>
 
 <!-- PRODUCTS – trendy grid with hover effects -->
-<div class="container pb-5" data-aos="fade-up">
-  <div id="loader" class="loader mx-auto mb-5"></div>
-  <div class="row g-4 d-none" id="product-list"></div>
-</div>
+<section id="products-section" class="products-section py-5">
+  <div class="container">
+
+    <h2 class="products-title">🔥 Explore Collection</h2>
+
+    <div id="loader" class="loader mx-auto mb-5"></div>
+
+    <div class="row g-4 d-none" id="product-list"></div>
+
+  </div>
+</section>
 
 {% endblock %}
 

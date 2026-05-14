@@ -2,19 +2,18 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-# ========================
+# ==========================================================
 # BASE DIR & ENV
-# ========================
+# ==========================================================
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load .env only for local development
 if os.path.exists(BASE_DIR / ".env"):
     load_dotenv(BASE_DIR / ".env")
 
-# ========================
-# BASIC SETTINGS
-# ========================
+# ==========================================================
+# SECURITY
+# ==========================================================
 
 SECRET_KEY = os.getenv(
     "SECRET_KEY",
@@ -24,8 +23,8 @@ SECRET_KEY = os.getenv(
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = [
-    "localhost",
     "127.0.0.1",
+    "localhost",
     ".onrender.com",
 ]
 
@@ -33,9 +32,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
 ]
 
-# ========================
-# INSTALLED APPS
-# ========================
+# ==========================================================
+# APPLICATIONS
+# ==========================================================
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -60,13 +59,14 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
 ]
 
-# ========================
+# ==========================================================
 # MIDDLEWARE
-# ========================
+# ==========================================================
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -75,11 +75,16 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# ========================
-# URLS & TEMPLATES
-# ========================
+# ==========================================================
+# URLS & WSGI
+# ==========================================================
 
 ROOT_URLCONF = "pairo_backend.urls"
+WSGI_APPLICATION = "pairo_backend.wsgi.application"
+
+# ==========================================================
+# TEMPLATES
+# ==========================================================
 
 TEMPLATES = [
     {
@@ -97,11 +102,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "pairo_backend.wsgi.application"
-
-# ========================
-# DATABASE (POSTGRES ONLY)
-# ========================
+# ==========================================================
+# DATABASE (PostgreSQL)
+# ==========================================================
 
 DATABASES = {
     "default": {
@@ -114,9 +117,9 @@ DATABASES = {
     }
 }
 
-# ========================
-# STATIC FILES
-# ========================
+# ==========================================================
+# STATIC FILES (FINAL FIXED)
+# ==========================================================
 
 STATIC_URL = "/static/"
 
@@ -130,16 +133,24 @@ STATICFILES_STORAGE = (
     "whitenoise.storage.CompressedManifestStaticFilesStorage"
 )
 
-# ========================
+# ==========================================================
 # MEDIA FILES
-# ========================
+# ==========================================================
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# ========================
-# EMAIL (DEV SAFE)
-# ========================
+# ==========================================================
+# AUTH REDIRECTS (IMPORTANT FOR LOGIN ISSUE)
+# ==========================================================
+
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/checkout/"
+LOGOUT_REDIRECT_URL = "/"
+
+# ==========================================================
+# EMAIL (SAFE DEFAULT)
+# ==========================================================
 
 EMAIL_BACKEND = os.getenv(
     "EMAIL_BACKEND",
@@ -151,8 +162,8 @@ DEFAULT_FROM_EMAIL = os.getenv(
     "PAIRO <no-reply@pairo.com>",
 )
 
-# ========================
-# DEFAULT SETTINGS
-# ========================
+# ==========================================================
+# DEFAULTS
+# ==========================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -1,201 +1,261 @@
-/* Global Reset & Typography */
+/* =====================================
+🔥 PAIRO FINAL UI (BOLD + MODERN)
+===================================== */
+
+:root {
+  --primary: #ff3b3b;
+  --secondary: #ff8c42;
+  --dark: #0a0a0a;
+  --card: #111;
+  --border: rgba(255,255,255,0.08);
+
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
+/* RESET */
 * {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 🔥 FONT SYSTEM */
 body {
-  background: #0a0a0a; /* Dark urban background */
-  color: #f0f0f0;
-  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+  color: white;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
+h1, h2, h3, h4, h5 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
 }
 
-/* Colors & Gradients – trending neon fashion */
-:root {
-  --neon-pink: #ff3e6b;
-  --neon-orange: #ff8c00;
-  --dark-bg: #0a0a0a;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --shadow-neon: 0 8px 32px rgba(255, 62, 107, 0.2);
-  --gradient-neon: linear-gradient(135deg, var(--neon-pink), var(--neon-orange));
+/* ===============================
+🔥 NAVBAR (GEN-Z STYLE)
+=============================== */
+
+.genz-navbar {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
-.neon-text {
-  background: var(--gradient-neon);
+.brand-text {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff3b3b, #ff8c42);
   -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
 }
 
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+/* NAV LINKS */
+.nav-genz {
+  color: #aaa;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-genz:hover {
+  color: white;
+}
+
+.nav-genz::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+.nav-genz:hover::after {
+  width: 80%;
+}
+
+/* ICONS */
+.nav-icon {
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.nav-icon:hover {
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.2);
+}
+
+/* ===============================
+🔥 HERO SECTION
+=============================== */
+
+.hero-premium {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #111, #000);
+}
+
+.hero-main {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #ff3b3b, #ff8c42);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-tagline {
+  color: #aaa;
+  font-size: 1.2rem;
+}
+
+/* ===============================
+🔥 FEATURE STRIP
+=============================== */
+
+.feature-strip {
+  background: #000;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  color: #bbb;
+  font-weight: 500;
+}
+
+/* ===============================
+🔥 PRODUCTS SECTION
+=============================== */
+
+.products-section {
+  background: radial-gradient(circle at top, #111, #000);
+  padding: 80px 0;
+}
+
+.products-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* ===============================
+🔥 PRODUCT CARDS (PREMIUM)
+=============================== */
+
+.product-card {
+  position: relative;
+  background: #111;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+/* DARK OVERLAY */
+.product-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* CONTENT */
+.product-card .card-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 2;
+}
+
+/* HOVER */
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* PRICE */
+.price {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ===============================
+🔥 BUTTONS
+=============================== */
+
 .btn-neon {
-  background: var(--gradient-neon);
-  color: white !important;
+  background: linear-gradient(45deg, #ff3b3b, #ff8c42);
   border: none;
-  transition: all 0.3s ease;
+  color: white;
+  border-radius: 30px;
+  padding: 12px 28px;
+  transition: 0.3s;
 }
 
 .btn-neon:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-neon);
 }
 
-.btn-outline-neon {
-  border: 1px solid var(--neon-pink);
-  color: var(--neon-pink);
-  transition: all 0.3s ease;
-}
+/* ===============================
+🔥 FORMS
+=============================== */
 
-.btn-outline-neon:hover {
-  background: var(--neon-pink);
+.form-control {
+  background: #111;
+  border: 1px solid var(--border);
   color: white;
-  box-shadow: var(--shadow-neon);
 }
 
-/* Glassmorphism */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  box-shadow: var(--shadow-neon);
-  transition: transform 0.3s ease;
-}
+/* ===============================
+🔥 TABLE
+=============================== */
 
-.glass-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Navbar */
-.glass-nav {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 62, 107, 0.1);
-}
-
-/* Hero Section */
-.hero-section {
-  height: 80vh;
-  background: var(--gradient-neon);
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.6);
-}
-
-.gradient-overlay {
-  background: linear-gradient(to bottom, transparent, var(--dark-bg));
-}
-
-/* Product Image & Price */
-.product-image {
-  transition: transform 0.5s ease;
-}
-
-.product-image:hover img {
-  transform: scale(1.05);
-}
-
-.price {
-  background: var(--gradient-neon);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: 600;
-}
-
-/* Size Options */
-.size-btn {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.size-btn.active {
-  background: var(--gradient-neon);
+.table {
   color: white;
-  transform: scale(1.1);
-  box-shadow: var(--shadow-neon);
 }
 
-/* Table in Profile */
-.table-dark {
-  --bs-table-bg: var(--glass-bg);
-  --bs-table-color: #f0f0f0;
-}
+/* ===============================
+🔥 LOADER
+=============================== */
 
-.table-hover tr:hover {
-  background: rgba(255, 62, 107, 0.1);
-}
-
-/* Loader */
 .loader {
-  width: 50px;
-  height: 50px;
-  border: 5px solid rgba(255, 255, 255, 0.3);
-  border-top: 5px solid var(--neon-pink);
+  width: 46px;
+  height: 46px;
+  border: 4px solid #333;
+  border-top: 4px solid var(--primary);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 80px auto;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-/* Toast */
-.toast {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--neon-pink) !important;
-  box-shadow: var(--shadow-neon) !important;
-}
+/* ===============================
+🔥 MOBILE
+=============================== */
 
-/* Forms (Login/Signup) */
-.form-control {
-  background: var(--glass-bg);
-  border: 1px solid rgba(255, 62, 107, 0.2);
-  color: #f0f0f0;
-}
-
-.form-control:focus {
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 0 0.25rem rgba(255, 62, 107, 0.25);
-}
-
-/* Cart Items */
-.list-group-item {
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 62, 107, 0.1);
-  transition: all 0.3s ease;
-}
-
-.list-group-item:hover {
-  background: rgba(255, 62, 107, 0.05);
-}
-
-/* Category Pills (in home) */
-.category-pills button {
-  border-radius: 50px;
-  padding: 10px 25px;
-  transition: all 0.3s ease;
-}
-
-.category-pills button:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-neon);
+@media (max-width: 768px) {
+  .hero-main {
+    font-size: 2.8rem;
+  }
 }

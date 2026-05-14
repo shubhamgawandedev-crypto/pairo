@@ -79,14 +79,15 @@ function renderProducts(products) {
         const card = document.createElement("div");
         card.className = "col-md-4 col-lg-3 mb-4";
         card.innerHTML = `
-            <div class="product-card glass-card rounded-4 overflow-hidden shadow-neon h-100 transition-all"
-                 data-aos="fade-up" data-aos-delay="${index * 80}">
-                <div class="image-wrapper ratio ratio-1x1 position-relative">
-                    <img src="${img}" class="card-img-top object-fit-cover transition-zoom" alt="${p.name}">
-                    <div class="overlay-gradient position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3">
-                        <span class="badge bg-neon text-dark fw-bold">New</span>
-                    </div>
-                </div>
+  <div class="product-card h-100">
+    <img src="${img}" alt="${p.name}">
+    <div class="card-body">
+      <h6>${p.name}</h6>
+      <p class="price">₹${p.base_price}</p>
+      <a href="/product/${p.id}/" class="btn btn-neon w-100">View</a>
+    </div>
+  </div>
+`;
                 <div class="card-body text-center p-4">
                     <h6 class="fw-bold mb-2">${p.name}</h6>
                     <p class="price fs-5 fw-bold gradient-text mb-3">₹${p.base_price}</p>
